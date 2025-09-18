@@ -328,7 +328,7 @@ gearman_return_t gearman_wait(gearman_universal_st& universal)
       switch(errno)
       {
       case EINTR:
-        continue;
+        return GEARMAN_IO_WAIT;
 
       case EINVAL:
         return gearman_perror(universal, errno, "RLIMIT_NOFILE exceeded, or if OSX the timeout value was invalid");
